@@ -1,15 +1,15 @@
 // import logo from './logo.svg';
 import './App.css';
 
-import Graph from '../components/Graph.js';
+import StockTile from '../components/StockTile.js';
 
 function App() {
   return (
     <div className="App">
-      <Graph />
-      <Graph />
-      <Graph />
-      <Graph />
+      <StockTile />
+      <StockTile />
+      <StockTile />
+      <StockTile />
       {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
