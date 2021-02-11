@@ -1,3 +1,3 @@
 # Simple Stock Tracker
 
-A simple stock tracker.
+A simple stock tracker!
