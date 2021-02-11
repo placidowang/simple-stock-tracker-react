@@ -2,7 +2,7 @@ import React from 'react';
 import Graph from './Graph.js';
 
 const StockTile = () => <div>
-    StockTile component
+    <h1>GME</h1>
     <Graph />
 </div>
 
