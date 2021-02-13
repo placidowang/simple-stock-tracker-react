@@ -7,34 +7,24 @@ import StockTile from '../components/StockTile.js';
 
 function App() {
   // const KEY = process.env.REACT_APP_AV_KEY;
-  const [portfolio, setPortfolio] = useState([]);
-
+  const [portfolio, setPortfolio] = useState([
+    {
+      name: 'GME',
+      shares: 10
+    },
+    {
+      name: 'TSLA',
+      shares: 1
+    }
+  ]);
+  const KEY = process.env.REACT_APP_AV_KEY;
   
 
   return (
     <div className="App">
-      <StockTile />
-      <StockTile />
-      <StockTile />
-      <StockTile />
-      {/* <StockTile KEY={KEY} />
-      <StockTile KEY={KEY} />
-      <StockTile KEY={KEY} />
-      <StockTile KEY={KEY} /> */}
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      {portfolio.map(stock => 
+        <StockTile stock={stock} KEY={KEY}/>)
+      }
     </div>
   );
 }
