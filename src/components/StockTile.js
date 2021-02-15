@@ -6,7 +6,7 @@ const StockTile = ({stock, KEY}) => {
 
   // Will need to set up Cleanup when/if auto-refreshing ticker data
   useEffect(() => {
-    fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=GME&interval=5min&apikey=${KEY}`)
+    fetch(`https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=${stock.name}&interval=5min&apikey=${KEY}`)
       .then(r => r.json())
       .then(d => {
         console.log(d);

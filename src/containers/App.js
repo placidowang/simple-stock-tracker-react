@@ -15,6 +15,10 @@ function App() {
     {
       name: 'TSLA',
       shares: 1
+    },
+    {
+      name: 'AAPL',
+      shares: 3
     }
   ]);
   const KEY = process.env.REACT_APP_AV_KEY;
