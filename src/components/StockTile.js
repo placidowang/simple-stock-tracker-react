@@ -2,7 +2,14 @@ import React, { useState, useEffect } from 'react';
 import Graph from './Graph.js';
 
 const StockTile = ({stock, KEY, setPortfolio}) => {
-  const [data, setData] = useState({})
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [data, setData] = useState({
+    "Time Series (5min)": {
+      "2021-02-23 20:00:00": {
+        "4. close": "Couldn't find " + stock.name
+      }
+    }
+  })
 
   // Will need to set up Cleanup when/if auto-refreshing ticker data
   useEffect(() => {
@@ -10,16 +17,41 @@ const StockTile = ({stock, KEY, setPortfolio}) => {
       .then(r => r.json())
       .then(d => {
         console.log(d);
-        setData(d)
+        if (!d.Note) {
+          setData(d);
+        }
+        setIsLoaded(true);
       })
   },[])
 
+  const currValue = () => {
+    const val = data["Time Series (5min)"]["2021-02-23 20:00:00"]["4. close"];
+    if (val.charAt(0) !== "C") {
+      return(`Current value: $${parseFloat(val).toFixed(2)}`);
+    } else {
+      return val;
+    }
+  }
+
   return(
-    <div>
-        <h1>{stock.name}</h1>
-        <Graph />
-    </div>
-    )
+    <>
+      {isLoaded ?
+        <div>
+          <h1>{stock.name}</h1>
+          <p>{currValue()}</p>
+          <p>Shares: {stock.shares}</p>
+          <p>Total value: </p>
+          <Graph />
+        </div>
+        :
+        <div>
+          <h1>{stock.name}</h1>
+          <p>Searching for {stock.name}...</p>
+          <Graph />
+        </div>
+      }
+    </>
+  )
 }
 
 export default StockTile;
