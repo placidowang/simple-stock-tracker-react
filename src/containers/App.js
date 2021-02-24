@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       {portfolio.map(stock => 
-        <StockTile stock={stock} KEY={KEY}/>)
+        <StockTile stock={stock} KEY={KEY} setPortfolio={setPortfolio}/>)
       }
     </div>
   );

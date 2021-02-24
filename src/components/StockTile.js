@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Graph from './Graph.js';
 
-const StockTile = ({stock, KEY}) => {
+const StockTile = ({stock, KEY, setPortfolio}) => {
   const [data, setData] = useState({})
 
   // Will need to set up Cleanup when/if auto-refreshing ticker data
