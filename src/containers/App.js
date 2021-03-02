@@ -19,6 +19,10 @@ function App() {
     {
       name: 'AAPL',
       shares: 3
+    },
+    {
+      name: 'GOOG',
+      shares: 0
     }
   ]);
   const KEY = process.env.REACT_APP_AV_KEY;
