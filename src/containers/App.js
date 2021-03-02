@@ -17,10 +17,6 @@ function App() {
       shares: 1
     },
     {
-      name: 'AAPL',
-      shares: 3
-    },
-    {
       name: 'GOOG',
       shares: 0
     }
