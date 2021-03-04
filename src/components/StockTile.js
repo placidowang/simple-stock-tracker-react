@@ -24,18 +24,14 @@ const StockTile = ({stock, KEY, setPortfolio}) => {
       })
   },[])
 
-  const currValue = () => {
-    const val = data["Time Series (5min)"]["2021-02-23 20:00:00"]["4. close"];
-    if (val.charAt(0) !== "C") {
+  const currVal = data["Time Series (5min)"]["2021-02-23 20:00:00"]["4. close"];
+
+  const currValStr = () => {
+    if (currVal.charAt(0) !== "C") {
       return(`Current value: $${parseFloat(val).toFixed(2)}`);
     } else {
-      return val;
+      return currVal;
     }
-  }
-
-  const totalValue = () => {
-    // need currValue in float times stock.shares
-    return 'totalValue';
   }
 
   return(
@@ -43,9 +39,9 @@ const StockTile = ({stock, KEY, setPortfolio}) => {
       {isLoaded ?
         <div>
           <h1>{stock.name}</h1>
-          <p>{currValue()}</p>
+          <p>{currValStr()}</p>
           <p>Shares: {stock.shares}</p>
-          <p>Total value: {totalValue}</p>
+          <p>Total value: {currVal * stock.shares}</p>
           <Graph />
         </div>
         :
