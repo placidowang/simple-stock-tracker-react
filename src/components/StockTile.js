@@ -33,6 +33,11 @@ const StockTile = ({stock, KEY, setPortfolio}) => {
     }
   }
 
+  const totalValue = () => {
+    // need currValue in float times stock.shares
+    return 'totalValue';
+  }
+
   return(
     <>
       {isLoaded ?
@@ -40,7 +45,7 @@ const StockTile = ({stock, KEY, setPortfolio}) => {
           <h1>{stock.name}</h1>
           <p>{currValue()}</p>
           <p>Shares: {stock.shares}</p>
-          <p>Total value: </p>
+          <p>Total value: {totalValue}</p>
           <Graph />
         </div>
         :
